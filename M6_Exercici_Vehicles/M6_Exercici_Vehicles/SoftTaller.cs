@@ -38,14 +38,14 @@ namespace M6_Exercici_Vehicles
             Console.WriteLine();
             Console.WriteLine("   Opción 1: ver los vehiculos guardados");
             Console.WriteLine("   Opción 2: ver las personas guardadas");
-            Console.WriteLine("   Opción 3: agregar un nuevo vehiculo");
-            Console.WriteLine("   Opción 4: agregar una nueva persona");
-            Console.WriteLine("   Opción 5: cerrar el programa");
+            Console.WriteLine("   Opción 3: agregar un nuevo vehiculo o una nueva persona");
+            //Console.WriteLine("   Opción 4: agregar una nueva persona");
+            Console.WriteLine("   Opción 4: cerrar el programa");
             Console.WriteLine();
             IntroducirOpcion:
             Console.WriteLine("Indica el número de la opción que quieres: ");
             string opcion = Console.ReadLine();
-
+            
             switch (opcion)
             {
                 /*
@@ -80,22 +80,34 @@ namespace M6_Exercici_Vehicles
                     Console.WriteLine("--- AGREGAR NUEVO VEHICULO ---");
                     Console.WriteLine();
                     Console.WriteLine();
-                    vehiculos = SoftTallerNavigator.CrearVehicle(vehiculos);
-                    Console.WriteLine();
-                    // guardamos la lista al archivo xml
-                    Connexion.WriteVehicleToXmlFile(Connexion.getPathVehicle(), vehiculos);
-                    goto Inicio;
+                    Console.WriteLine("   Opción 3.1: agregar un nuevo vehiculo");
+                    Console.WriteLine("   Opción 4.1: agregar una nueva persona");
+                    string opcion2 = Console.ReadLine();
+                    switch (opcion2)
+                    {
+                    case "1":
+                        Console.Clear();
+                        Console.WriteLine("--- AGREGAR NUEVO VEHICULO ---");
+                        Console.WriteLine();
+                        Console.WriteLine();
+                        vehiculos = SoftTallerNavigator.CrearVehicle(vehiculos);
+                        Console.WriteLine();
+                        // guardamos la lista al archivo xml
+                        Connexion.WriteVehicleToXmlFile(Connexion.getPathVehicle(), vehiculos);
+                        goto Inicio;
+                    case "2":
+                        Console.Clear();
+                        Console.WriteLine("--- AGREGAR NUEVA PERSONA ---");
+                        Console.WriteLine();
+                        Console.WriteLine();
+                        //personas = METODO PARA CREAR PESONAS DE SOFTTALLERNAVIGATOR.CS
+                        Console.WriteLine();
+                        // guardamos la lista al archivo xml
+                        Connexion.WriteHumanToXmlFile(Connexion.getPathHuman(), personas);
+                        goto Inicio;
+                    }
+                
                 case "4":
-                    Console.Clear();
-                    Console.WriteLine("--- AGREGAR NUEVA PERSONA ---");
-                    Console.WriteLine();
-                    Console.WriteLine();
-                    //personas = METODO PARA CREAR PESONAS DE SOFTTALLERNAVIGATOR.CS
-                    Console.WriteLine();
-                    // guardamos la lista al archivo xml
-                    Connexion.WriteHumanToXmlFile(Connexion.getPathHuman(), personas);
-                    goto Inicio;
-                case "5":
                     Console.WriteLine("GRACIAS POR UTILIZAR SOFTTALLER");
                     break;
                 default:

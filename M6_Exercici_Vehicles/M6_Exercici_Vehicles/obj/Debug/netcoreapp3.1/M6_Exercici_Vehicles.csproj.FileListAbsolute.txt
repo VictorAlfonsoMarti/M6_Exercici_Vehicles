@@ -11,3 +11,5 @@ C:\Users\victo\source\repos\M6_Exercici_Vehicles\M6_Exercici_Vehicles\obj\Debug\
 C:\Users\victo\source\repos\M6_Exercici_Vehicles\M6_Exercici_Vehicles\obj\Debug\netcoreapp3.1\M6_Exercici_Vehicles.dll
 C:\Users\victo\source\repos\M6_Exercici_Vehicles\M6_Exercici_Vehicles\obj\Debug\netcoreapp3.1\M6_Exercici_Vehicles.pdb
 C:\Users\victo\source\repos\M6_Exercici_Vehicles\M6_Exercici_Vehicles\obj\Debug\netcoreapp3.1\M6_Exercici_Vehicles.genruntimeconfig.cache
+C:\Users\Arnau\Source\Repos\VictorAlfonsoMarti\M6_Exercici_Vehicles\M6_Exercici_Vehicles\M6_Exercici_Vehicles\obj\Debug\netcoreapp3.1\M6_Exercici_Vehicles.dll
+C:\Users\Arnau\Source\Repos\VictorAlfonsoMarti\M6_Exercici_Vehicles\M6_Exercici_Vehicles\M6_Exercici_Vehicles\obj\Debug\netcoreapp3.1\M6_Exercici_Vehicles.pdb
