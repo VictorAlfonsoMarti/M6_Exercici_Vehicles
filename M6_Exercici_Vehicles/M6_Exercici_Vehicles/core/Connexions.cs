@@ -54,7 +54,7 @@ namespace M6_Exercici_Vehicles
              * // Connexion.WriteVehicleToXmlFile(Connexion.getPath(), vehicles);
              */
 
-            Type[] tipos = new Type[] { typeof(Car), typeof(Wheel), typeof(Truck), typeof(Bike), typeof(Driver), typeof(VehicleHolder) }; // tipos de clases para llamar al serializador
+            Type[] tipos = new Type[] { typeof(Car), typeof(Truck), typeof(Bike), typeof(Driver), typeof(VehicleHolder) }; // tipos de clases para llamar al serializador
 
             TextWriter writer = null; //inicialitzem el metode TextWriter per escriure al fitxer
             try
@@ -80,7 +80,7 @@ namespace M6_Exercici_Vehicles
              * codi per trucar aquest parametre:
              * // Connexion.ReadVehicleFromXmlFile(Connexion.getPath());
              */
-            Type[] tipos = new Type[] { typeof(Car), typeof(Wheel), typeof(Truck), typeof(Bike), typeof(Driver), typeof(VehicleHolder) }; // tipos de clases para llamar al serializador
+            Type[] tipos = new Type[] { typeof(Car), typeof(Truck), typeof(Bike), typeof(Driver), typeof(VehicleHolder) }; // tipos de clases para llamar al serializador
 
             TextReader reader = null; // inicialitzem el objecte TextReader
             try
@@ -111,7 +111,7 @@ namespace M6_Exercici_Vehicles
              * // Connexion.WriteHumanToXmlFile(Connexion.getPath(), List<object>);
              */
 
-            Type[] tipos = new Type[] { typeof(Car), typeof(Wheel), typeof(Truck), typeof(Bike), typeof(Driver), typeof(VehicleHolder) }; // tipos de clases para llamar al serializador
+            Type[] tipos = new Type[] { typeof(Car), typeof(Truck), typeof(Bike), typeof(Driver), typeof(VehicleHolder) }; // tipos de clases para llamar al serializador
 
             TextWriter writer = null; //inicialitzem el metode TextWriter per escriure al fitxer
             try
@@ -138,7 +138,7 @@ namespace M6_Exercici_Vehicles
              * // Connexion.ReadHumanFromXmlFile(Connexion.getPath());
              */
 
-            Type[] tipos = new Type[] { typeof(Car), typeof(Wheel), typeof(Truck), typeof(Bike), typeof(Driver), typeof(VehicleHolder) }; // tipos de clases para llamar al serializador
+            Type[] tipos = new Type[] { typeof(Car), typeof(Truck), typeof(Bike), typeof(Driver), typeof(VehicleHolder) }; // tipos de clases para llamar al serializador
 
             TextReader reader = null; // inicialitzem el objecte TextReader
             try
