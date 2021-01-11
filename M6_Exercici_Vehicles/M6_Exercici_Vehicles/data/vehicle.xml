@@ -13,4 +13,24 @@
     <_MarcaTraseraIzquierda>Holl1</_MarcaTraseraIzquierda>
     <_DiametroTraseraIzquierda>2</_DiametroTraseraIzquierda>
   </anyType>
+  <anyType xsi:type="Bike">
+    <_Matricula>1233AAX</_Matricula>
+    <_Marca>motogp</_Marca>
+    <_Color>groc</_Color>
+    <_MarcaDelantera>Marca de la Casa</_MarcaDelantera>
+    <_DiametroDelantera>2</_DiametroDelantera>
+    <_MarcaTrasera>michelin3</_MarcaTrasera>
+    <_DiametroTrasera>4</_DiametroTrasera>
+    <_Conductor>
+      <Nom>Henrry</Nom>
+      <Cognoms>Ford</Cognoms>
+      <DataNaixement>12/12/1212</DataNaixement>
+      <Llicencia>
+        <id>moto</id>
+        <Tipus>moto</Tipus>
+        <NomComplet>Henrry Ford</NomComplet>
+        <Caducitat>12/12/12</Caducitat>
+      </Llicencia>
+    </_Conductor>
+  </anyType>
 </ArrayOfAnyType>

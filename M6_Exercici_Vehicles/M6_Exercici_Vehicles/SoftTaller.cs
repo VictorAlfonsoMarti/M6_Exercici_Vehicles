@@ -39,7 +39,6 @@ namespace M6_Exercici_Vehicles
             Console.WriteLine("   Opción 1: ver los vehiculos guardados");
             Console.WriteLine("   Opción 2: ver las personas guardadas");
             Console.WriteLine("   Opción 3: agregar un nuevo vehiculo o una nueva persona");
-            //Console.WriteLine("   Opción 4: agregar una nueva persona");
             Console.WriteLine("   Opción 4: cerrar el programa");
             Console.WriteLine();
             IntroducirOpcion:
@@ -60,7 +59,7 @@ namespace M6_Exercici_Vehicles
                     Console.WriteLine();
                     Console.WriteLine();
                     // metodo para mostrar el contenido de la lista vehiculos
-                    SoftTallerNavigator.ShowList(vehiculos);
+                    SoftTallerNavigator.ShowList(vehiculos, "Vehículo");
                     Console.WriteLine();
                     Console.WriteLine("Pulse ENTER para volver al menú principal...");
                     Console.ReadLine();
@@ -71,17 +70,19 @@ namespace M6_Exercici_Vehicles
                     Console.WriteLine();
                     Console.WriteLine();
                     // metodo para mostrar el contenido de la lista personas
-                    SoftTallerNavigator.ShowList(personas);
+                    SoftTallerNavigator.ShowList(personas, "Persona");
                     Console.WriteLine("Pulse ENTER para volver al menú principal...");
                     Console.ReadLine();
                     goto Inicio;
                 case "3":
                     Console.Clear();
-                    Console.WriteLine("--- AGREGAR NUEVO VEHICULO ---");
+                    Console.WriteLine("--- AGREGAR NUEVO VEHICULO O PERSONA---");
                     Console.WriteLine();
                     Console.WriteLine();
-                    Console.WriteLine("   Opción 3.1: agregar un nuevo vehiculo");
-                    Console.WriteLine("   Opción 4.1: agregar una nueva persona");
+                    Console.WriteLine("   Opción 1: agregar un nuevo vehiculo");
+                    Console.WriteLine("   Opción 2: agregar una nueva persona");
+                    Console.WriteLine("   Opción 3: volver al menú principal");
+                    error123:
                     string opcion2 = Console.ReadLine();
                     switch (opcion2)
                     {
@@ -90,23 +91,32 @@ namespace M6_Exercici_Vehicles
                         Console.WriteLine("--- AGREGAR NUEVO VEHICULO ---");
                         Console.WriteLine();
                         Console.WriteLine();
-                        vehiculos = SoftTallerNavigator.CrearVehicle(vehiculos);
+                        vehiculos = SoftTallerNavigator.CrearVehicle(vehiculos, personas);
                         Console.WriteLine();
                         // guardamos la lista al archivo xml
                         Connexion.WriteVehicleToXmlFile(Connexion.getPathVehicle(), vehiculos);
+                        // cargamos la lista personas tras haberla guardado en los metodos de NewVehicle
+                        personas = Connexion.ReadHumanFromXmlFile(Connexion.getPathHuman());
                         goto Inicio;
                     case "2":
                         Console.Clear();
                         Console.WriteLine("--- AGREGAR NUEVA PERSONA ---");
                         Console.WriteLine();
                         Console.WriteLine();
-                        //personas = METODO PARA CREAR PESONAS DE SOFTTALLERNAVIGATOR.CS
+                        // llamamos ala funcion crear nuevo driver y la adjuntamos a la lista
+                        personas.Add(NewHuman.AddDriver());
                         Console.WriteLine();
                         // guardamos la lista al archivo xml
                         Connexion.WriteHumanToXmlFile(Connexion.getPathHuman(), personas);
                         goto Inicio;
+                        case "3":
+                            goto Inicio;
+                        default:
+                            Console.WriteLine("ERROR: NÚMERO NO RECONOCIDO");
+                            Console.WriteLine("Por favor, introduzca una opción válida");
+                            goto error123;
                     }
-                
+                    break;
                 case "4":
                     Console.WriteLine("GRACIAS POR UTILIZAR SOFTTALLER");
                     break;

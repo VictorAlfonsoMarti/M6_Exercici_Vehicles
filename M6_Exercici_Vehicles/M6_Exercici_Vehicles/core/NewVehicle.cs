@@ -12,7 +12,7 @@ namespace M6_Exercici_Vehicles
          * variables. hacen lo mismo y devuelven lo mismo
          */
 
-        public static Car NewCar()
+        public static Car NewCar(List<object> personas)
         {
             /* metodo que retorna un nuevo objeto Car a partir de las entradas indicadas por el usuario
              * 
@@ -78,7 +78,7 @@ namespace M6_Exercici_Vehicles
                                 Console.WriteLine("Indica el diametro de las ruedas delanteras:");
                                 respuesta2 = Check.CheckDiametro(Convert.ToDouble(Console.ReadLine())); // comprobamos el diametro con un metodo
                             }
-                            catch (System.FormatException ex)
+                            catch (System.FormatException)
                             {
                                 Console.WriteLine("ERROR: Diametro no reconocido.");
                                 goto diametroIncorrecto;
@@ -114,7 +114,7 @@ namespace M6_Exercici_Vehicles
                                 Console.WriteLine("Indica el diametro de las ruedas traseras:");
                                 respuesta2 = Check.CheckDiametro(Convert.ToDouble(Console.ReadLine())); // comprobamos el diametro con un metodo
                             }
-                            catch (System.FormatException ex)
+                            catch (System.FormatException)
                             {
                                 Console.WriteLine("ERROR: Diametro no reconocido.");
                                 goto diametroIncorrecto2;
@@ -149,10 +149,13 @@ namespace M6_Exercici_Vehicles
             // Devolvemos el objeto final creado
             coche.ToString();
             Console.ReadLine();
+
+            // pedimos conductor y comprobamos si tiene licencia
+            coche = CheckDriverCar(coche,personas);
             return coche;
         }
 
-        public static Bike NewBike()
+        public static Bike NewBike(List<object> personas)
         {
             /* metodo que retorna un nuevo objeto Bike a partir de las entradas indicadas por el usuario
              * 
@@ -218,7 +221,7 @@ namespace M6_Exercici_Vehicles
                         Console.WriteLine("Indica el diametro de las rueda delantera:");
                         respuesta2 = Check.CheckDiametro(Convert.ToDouble(Console.ReadLine())); // comprobamos el diametro con un metodo
                     }
-                    catch (System.FormatException ex)
+                    catch (System.FormatException)
                     {
                         Console.WriteLine("ERROR: Diametro no reconocido.");
                         goto diametroIncorrecto;
@@ -254,7 +257,7 @@ namespace M6_Exercici_Vehicles
                         Console.WriteLine("Indica el diametro de las rueda trasera:");
                         respuesta2 = Check.CheckDiametro(Convert.ToDouble(Console.ReadLine())); // comprobamos el diametro con un metodo
                     }
-                    catch (System.FormatException ex)
+                    catch (System.FormatException)
                     {
                         Console.WriteLine("ERROR: Diametro no reconocido.");
                         goto diametroIncorrecto2;
@@ -286,12 +289,13 @@ namespace M6_Exercici_Vehicles
                 moto = new Bike(matricula, marca, color, ruedasDelanterasMarca, ruedasDelanterasDiametro, ruedasTraserasMarca, ruedasTraserasDiametro); // llamamos al constructor completo
             }
 
-
+            // pedimos conductor y comprobamos que también tenga liciencia
+            CheckDriverBike(moto, personas);
             // Devolvemos el objeto final creado
             return moto;
         }
 
-        public static Truck NewTruck()
+        public static Truck NewTruck(List<object> personas)
         {
             /* metodo que retorna un nuevo objeto Truck a partir de las entradas indicadas por el usuario
               * 
@@ -357,7 +361,7 @@ namespace M6_Exercici_Vehicles
                         Console.WriteLine("Indica el diametro de las ruedas delanteras:");
                         respuesta2 = Check.CheckDiametro(Convert.ToDouble(Console.ReadLine())); // comprobamos el diametro con un metodo
                     }
-                    catch (System.FormatException ex)
+                    catch (System.FormatException)
                     {
                         Console.WriteLine("ERROR: Diametro no reconocido.");
                         goto diametroIncorrecto;
@@ -393,7 +397,7 @@ namespace M6_Exercici_Vehicles
                         Console.WriteLine("Indica el diametro de las ruedas traseras:");
                         respuesta2 = Check.CheckDiametro(Convert.ToDouble(Console.ReadLine())); // comprobamos el diametro con un metodo
                     }
-                    catch (System.FormatException ex)
+                    catch (System.FormatException)
                     {
                         Console.WriteLine("ERROR: Diametro no reconocido.");
                         goto diametroIncorrecto2;
@@ -425,8 +429,118 @@ namespace M6_Exercici_Vehicles
                 camion = new Truck(matricula, marca, color, ruedasDelanterasMarca, ruedasDelanterasDiametro, ruedasTraserasMarca, ruedasTraserasDiametro); // llamamos al constructor completo
             }
 
+            // pedimos conductor y comprobamos que también tenga liciencia
+            CheckDriverTruck(camion, personas);
+
             // Devolvemos el objeto final creado
             return camion;
         }
+
+        public static Car CheckDriverCar(Car coche, List<object> personas)
+        {
+            string respuesta;
+            Driver conductor = new Driver() ;
+
+            respuestaError:
+            Console.WriteLine("El titular también será el conductor? si || no");
+            respuesta = Console.ReadLine();
+            switch (respuesta)
+            {
+                case "si":
+                    Console.WriteLine("Vehiculo creado, pulse ENTER para continuar.");
+                    Console.ReadLine();
+                    return coche;
+                case "no":
+                    Console.WriteLine("Debe asignar un conductor adecuado:");
+                    conductor = NewHuman.AddDriver();
+                    if (conductor.Llicencia.Tipus != "coche")
+                    {
+                        Console.WriteLine("ERROR: se debe asignar un conductor con licencia para coches.");
+                        goto respuestaError;
+                    }
+                    break;
+                default:
+                    Console.WriteLine("ERROR: Escriba 'si' o 'no'");
+                    goto respuestaError;
+            }
+            // asignamos conductor al objeto coche
+            coche._Conductor = conductor;
+            personas.Add(conductor);
+            Connexion.WriteHumanToXmlFile(Connexion.getPathHuman(), personas);
+            return coche;
+
+        }
+        public static Bike CheckDriverBike(Bike moto, List<object> personas)
+        {
+            string respuesta;
+            Driver conductor = new Driver();
+
+        respuestaError:
+            Console.WriteLine("El titular también será el conductor? si || no");
+            respuesta = Console.ReadLine();
+            switch (respuesta)
+            {
+                case "si":
+                    Console.WriteLine("Vehiculo creado, pulse ENTER para continuar.");
+                    Console.ReadLine();
+                    return moto;
+                case "no":
+                    Console.WriteLine("Debe asignar un conductor adecuado:");
+                    conductor = NewHuman.AddDriver();
+                    if (conductor.Llicencia.Tipus != "moto")
+                    {
+                        Console.WriteLine("ERROR: se debe asignar un conductor con licencia para motos.");
+                        goto respuestaError;
+                    }
+                    break;
+                default:
+                    Console.WriteLine("ERROR: Escriba 'si' o 'no'");
+                    goto respuestaError;
+            }
+            // asignamos conductor al objeto coche
+            moto._Conductor = conductor;
+            personas.Add(conductor);
+            Connexion.WriteHumanToXmlFile(Connexion.getPathHuman(), personas);
+            return moto;
+        }
+        public static Truck CheckDriverTruck(Truck camion, List<object> personas)
+        {
+            string respuesta;
+            Driver conductor = new Driver();
+
+        respuestaError:
+            Console.WriteLine("El titular también será el conductor? si || no");
+            respuesta = Console.ReadLine();
+            switch (respuesta)
+            {
+                case "si":
+                    Console.WriteLine("Vehiculo creado, pulse ENTER para continuar.");
+                    Console.ReadLine();
+                    return camion;
+                case "no":
+                    Console.WriteLine("Debe asignar un conductor adecuado:");
+                    conductor = NewHuman.AddDriver();
+                    if (conductor.Llicencia.Tipus != "camion")
+                    {
+                        Console.WriteLine("ERROR: se debe asignar un conductor con licencia para camiones.");
+                        goto respuestaError;
+                    }
+                    break;
+                default:
+                    Console.WriteLine("ERROR: Escriba 'si' o 'no'");
+                    goto respuestaError;
+            }
+            // asignamos conductor al objeto coche
+            camion._Conductor = conductor;
+            personas.Add(conductor);
+            Connexion.WriteHumanToXmlFile(Connexion.getPathHuman(), personas);
+            return camion;
+        }
+
+
+
+
+
+
     }
 }
