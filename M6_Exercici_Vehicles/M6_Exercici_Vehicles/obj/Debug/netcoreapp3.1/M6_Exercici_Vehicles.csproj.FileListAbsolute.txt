@@ -1,0 +1,13 @@
+C:\Users\victo\source\repos\M6_Exercici_Vehicles\M6_Exercici_Vehicles\bin\Debug\netcoreapp3.1\M6_Exercici_Vehicles.exe
+C:\Users\victo\source\repos\M6_Exercici_Vehicles\M6_Exercici_Vehicles\bin\Debug\netcoreapp3.1\M6_Exercici_Vehicles.deps.json
+C:\Users\victo\source\repos\M6_Exercici_Vehicles\M6_Exercici_Vehicles\bin\Debug\netcoreapp3.1\M6_Exercici_Vehicles.runtimeconfig.json
+C:\Users\victo\source\repos\M6_Exercici_Vehicles\M6_Exercici_Vehicles\bin\Debug\netcoreapp3.1\M6_Exercici_Vehicles.runtimeconfig.dev.json
+C:\Users\victo\source\repos\M6_Exercici_Vehicles\M6_Exercici_Vehicles\bin\Debug\netcoreapp3.1\M6_Exercici_Vehicles.dll
+C:\Users\victo\source\repos\M6_Exercici_Vehicles\M6_Exercici_Vehicles\bin\Debug\netcoreapp3.1\M6_Exercici_Vehicles.pdb
+C:\Users\victo\source\repos\M6_Exercici_Vehicles\M6_Exercici_Vehicles\obj\Debug\netcoreapp3.1\M6_Exercici_Vehicles.csprojAssemblyReference.cache
+C:\Users\victo\source\repos\M6_Exercici_Vehicles\M6_Exercici_Vehicles\obj\Debug\netcoreapp3.1\M6_Exercici_Vehicles.AssemblyInfoInputs.cache
+C:\Users\victo\source\repos\M6_Exercici_Vehicles\M6_Exercici_Vehicles\obj\Debug\netcoreapp3.1\M6_Exercici_Vehicles.AssemblyInfo.cs
+C:\Users\victo\source\repos\M6_Exercici_Vehicles\M6_Exercici_Vehicles\obj\Debug\netcoreapp3.1\M6_Exercici_Vehicles.csproj.CoreCompileInputs.cache
+C:\Users\victo\source\repos\M6_Exercici_Vehicles\M6_Exercici_Vehicles\obj\Debug\netcoreapp3.1\M6_Exercici_Vehicles.dll
+C:\Users\victo\source\repos\M6_Exercici_Vehicles\M6_Exercici_Vehicles\obj\Debug\netcoreapp3.1\M6_Exercici_Vehicles.pdb
+C:\Users\victo\source\repos\M6_Exercici_Vehicles\M6_Exercici_Vehicles\obj\Debug\netcoreapp3.1\M6_Exercici_Vehicles.genruntimeconfig.cache

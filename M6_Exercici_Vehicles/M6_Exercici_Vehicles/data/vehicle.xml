@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfAnyType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <anyType xsi:type="Car">
+    <_Matricula>1234XX</_Matricula>
+    <_Marca>Marca1</_Marca>
+    <_Color>Rosa</_Color>
+    <_MarcaDelanteraDerecha>Holl</_MarcaDelanteraDerecha>
+    <_DiametroDelanteraDerecha>3</_DiametroDelanteraDerecha>
+    <_MarcaDelanteraIzquierda>Holl</_MarcaDelanteraIzquierda>
+    <_DiametroDelanteraIzquierda>3</_DiametroDelanteraIzquierda>
+    <_MarcaTraseraDerecha>Holl1</_MarcaTraseraDerecha>
+    <_DiametroTraseraDerecha>2</_DiametroTraseraDerecha>
+    <_MarcaTraseraIzquierda>Holl1</_MarcaTraseraIzquierda>
+    <_DiametroTraseraIzquierda>2</_DiametroTraseraIzquierda>
+  </anyType>
+</ArrayOfAnyType>
