@@ -78,7 +78,7 @@ namespace M6_Exercici_Vehicles
                                 Console.WriteLine("Indica el diametro de las ruedas delanteras:");
                                 respuesta2 = Check.CheckDiametro(Convert.ToDouble(Console.ReadLine())); // comprobamos el diametro con un metodo
                             }
-                            catch (System.FormatException ex)
+                            catch (System.FormatException)
                             {
                                 Console.WriteLine("ERROR: Diametro no reconocido.");
                                 goto diametroIncorrecto;
@@ -114,7 +114,7 @@ namespace M6_Exercici_Vehicles
                                 Console.WriteLine("Indica el diametro de las ruedas traseras:");
                                 respuesta2 = Check.CheckDiametro(Convert.ToDouble(Console.ReadLine())); // comprobamos el diametro con un metodo
                             }
-                            catch (System.FormatException ex)
+                            catch (System.FormatException)
                             {
                                 Console.WriteLine("ERROR: Diametro no reconocido.");
                                 goto diametroIncorrecto2;
@@ -218,7 +218,7 @@ namespace M6_Exercici_Vehicles
                         Console.WriteLine("Indica el diametro de las rueda delantera:");
                         respuesta2 = Check.CheckDiametro(Convert.ToDouble(Console.ReadLine())); // comprobamos el diametro con un metodo
                     }
-                    catch (System.FormatException ex)
+                    catch (System.FormatException)
                     {
                         Console.WriteLine("ERROR: Diametro no reconocido.");
                         goto diametroIncorrecto;
@@ -254,7 +254,7 @@ namespace M6_Exercici_Vehicles
                         Console.WriteLine("Indica el diametro de las rueda trasera:");
                         respuesta2 = Check.CheckDiametro(Convert.ToDouble(Console.ReadLine())); // comprobamos el diametro con un metodo
                     }
-                    catch (System.FormatException ex)
+                    catch (System.FormatException)
                     {
                         Console.WriteLine("ERROR: Diametro no reconocido.");
                         goto diametroIncorrecto2;
@@ -357,7 +357,7 @@ namespace M6_Exercici_Vehicles
                         Console.WriteLine("Indica el diametro de las ruedas delanteras:");
                         respuesta2 = Check.CheckDiametro(Convert.ToDouble(Console.ReadLine())); // comprobamos el diametro con un metodo
                     }
-                    catch (System.FormatException ex)
+                    catch (System.FormatException)
                     {
                         Console.WriteLine("ERROR: Diametro no reconocido.");
                         goto diametroIncorrecto;
@@ -393,7 +393,7 @@ namespace M6_Exercici_Vehicles
                         Console.WriteLine("Indica el diametro de las ruedas traseras:");
                         respuesta2 = Check.CheckDiametro(Convert.ToDouble(Console.ReadLine())); // comprobamos el diametro con un metodo
                     }
-                    catch (System.FormatException ex)
+                    catch (System.FormatException)
                     {
                         Console.WriteLine("ERROR: Diametro no reconocido.");
                         goto diametroIncorrecto2;

@@ -11,9 +11,9 @@ namespace M6_Exercici_Vehicles
         private string nomComplet;
         private string caducitat;
 
-        public License(string iD, string tipus, string nomComplet, string caducitat)
+        public License(string ID, string tipus, string nomComplet, string caducitat)
         {
-            ID = iD;
+            this.ID = ID;
             this.tipus = tipus;
             this.nomComplet = nomComplet;
             this.caducitat = caducitat;
@@ -22,7 +22,7 @@ namespace M6_Exercici_Vehicles
         {
         }
 
-        public string ID1 { get => ID; set => ID = value; }
+        public string id { get => ID; set => ID = value; }
         public string Tipus { get => tipus; set => tipus = value; }
         public string NomComplet { get => nomComplet; set => nomComplet = value; }
         public string Caducitat { get => caducitat; set => caducitat = value; }

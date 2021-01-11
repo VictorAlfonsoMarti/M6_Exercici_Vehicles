@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace M6_Exercici_Vehicles
 {
@@ -55,7 +56,6 @@ namespace M6_Exercici_Vehicles
             }
             else // si ha encontrado algun error, imprimimos y volvemos a llamar al metodo.
             {
-                error: 
                 Console.WriteLine("ERROR: La matricula introducida es incorrecta.");
                 Console.WriteLine("FORMATO CORRECTO: 0000XX o 0000XXX");
                 Console.WriteLine("Por favor, vuelva a introducir la matricula:");
@@ -83,7 +83,7 @@ namespace M6_Exercici_Vehicles
                 {
                     diametroCorrecto = Check.CheckDiametro(Convert.ToDouble(Console.ReadLine())); // comprobamos el diametro recursivamente
                 }
-                catch (System.FormatException ex)
+                catch (System.FormatException)
                 {
                     Console.WriteLine("ERROR: Diametro no reconocido.");
                     goto diametroIncorrecto;
@@ -92,6 +92,23 @@ namespace M6_Exercici_Vehicles
 
             return diametroCorrecto;
 
+        }
+
+        public static string checkName(string nombre)
+        {
+            // Comprobador de que el nombre no esté vacio ni tenga números ni simbolos.
+
+            var permitido = new Regex("^[a-zA-Z ]*$"); // variable para revisar que no tenga simbolos especiales ni numeros
+            string nombreCorrecto = nombre;
+
+            while ((nombreCorrecto.Length <= 0) || ((permitido.IsMatch(nombreCorrecto)) == false)) //si esta vacio y si encuentra algun caracter que no este en el string permitido
+            {
+                Console.Clear();
+                Console.WriteLine("ERROR: El nombre {0} no puede estar vacio o contener números ni simbolos", nombreCorrecto);
+                Console.WriteLine("Introduzca otra vez el nombre: ");
+                nombreCorrecto = Console.ReadLine();
+            }
+            return nombreCorrecto;
         }
 
 
