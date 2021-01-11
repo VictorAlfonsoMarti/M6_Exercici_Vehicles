@@ -11,7 +11,7 @@ namespace M6_Exercici_Vehicles
          * 
          */
 
-        public static List<object> CrearVehicle(List<object> llista)
+        public static List<object> CrearVehicle(List<object> llista, List<object> personas)
         {
             /*
              * métode que es crida per saber quin tipus de vehicle s'ha de crear.
@@ -31,13 +31,13 @@ namespace M6_Exercici_Vehicles
             switch (entrada)
             {
                 case "coche":
-                    nouVehicle = NewVehicle.NewCar(); // asignamos el objeto retornado a la variable antes creada
+                    nouVehicle = NewVehicle.NewCar(personas); // asignamos el objeto retornado a la variable antes creada
                     break;
                 case "moto":
-                    nouVehicle = NewVehicle.NewBike();
+                    nouVehicle = NewVehicle.NewBike(personas);
                     break;
                 case "camion":
-                    nouVehicle = NewVehicle.NewTruck();
+                    nouVehicle = NewVehicle.NewTruck(personas);
                     break;
                 default:
                     Console.WriteLine("ERROR: {0} no se encuentra entre los vehiculos disponibles.", entrada);
@@ -50,13 +50,13 @@ namespace M6_Exercici_Vehicles
             return llista;
         }
 
-        public static void ShowList(List<object> llista)
+        public static void ShowList(List<object> llista, string objeto)
         {
             // metode que recorre una llista de objectes i les printe mostrant també el tipus de objecte
 
             for (int x = 0; x < llista.Count; x++)
             {
-                Console.WriteLine("Vehiculo {0}:", x+1);
+                Console.WriteLine("{0} {1}:",objeto, x+1);
                 Console.WriteLine();
                 llista[x].ToString();
                 Console.WriteLine();

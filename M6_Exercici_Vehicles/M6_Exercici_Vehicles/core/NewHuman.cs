@@ -15,13 +15,8 @@ namespace M6_Exercici_Vehicles
 
         public static Driver AddDriver()
         {
-            /* metodo que retorna un nuevo objeto Car a partir de las entradas indicadas por el usuario
+            /* metodo que retorna un nuevo objeto Driver a partir de las entradas indicadas por el usuario
              * 
-             * posibles returns: 
-             *  {matricula, marca, color} - ruedas por defecto
-             * Car {matricula, marca, color, ruedas delanteras} - ruedas traseras por defecto
-             * Car {matricula, marca, color, ruedas traseras} - ruedas delanteras por defecto
-             * Car {matricula, marca, color, ruedas delanteras, ruedas traseras} - ningún valor por defecto
              * 
              */
 
@@ -37,7 +32,7 @@ namespace M6_Exercici_Vehicles
             string respuesta;
             string respuesta2;
 
-
+            Inicio:
             // BLOQUE 1: CREAMOS CONDUCTOR NUEVO
             Console.WriteLine();
             Console.WriteLine("--- CREAR NUEVO CONDUCTOR ---");
@@ -58,11 +53,10 @@ namespace M6_Exercici_Vehicles
             }
             else
             {
-                Console.WriteLine("ERROR: FORMAT NO RECONEGUT: DD/MM/YYYY"); // <-- Control flow goes here
+                Console.WriteLine("ERROR: DATA NO RECONEGUDA: DD/MM/YYYY"); // <-- Control flow goes here
                 goto fechaIncorrecta;
             }
-            dataNaixement = Console.ReadLine();
-        ErrorSiNo:
+            ErrorSiNo:
             Console.WriteLine("Este conductor tendrá licencia? si || no");
             respuesta = Console.ReadLine();
             Driver conductor;
@@ -72,16 +66,27 @@ namespace M6_Exercici_Vehicles
                 {
                     Console.WriteLine("Indica la ID de la licencia:");
                     IDLlicencia = Console.ReadLine();
-                licenciaIncorrecta:
+                    licenciaIncorrecta:
                     Console.WriteLine("Indica el tipo de la licencia: moto || coche || camion");
                     tipusLlicencia = Console.ReadLine();
-                    if (tipusLlicencia != "moto" || tipusLlicencia != "coche" || tipusLlicencia != "camion")
+                    if (tipusLlicencia != "moto" && tipusLlicencia != "coche" && tipusLlicencia != "camion")
                     {
                         Console.Write("ERROR: licencia no reconocida");
                         goto licenciaIncorrecta;
                     }
-                    Console.WriteLine("Indica la fecha de caducidad de la licencia:");
+                    fechaIncorrecta2:
+                    Console.WriteLine("Indica la fecha de caducidad de la licencia: DD/MM/YYYY");
                     caducitatLlicencia = Console.ReadLine();
+                    if (DateTime.TryParse(caducitatLlicencia, out dDate))
+                    {
+                        String.Format("{0:d/MM/yyyy}", dDate);
+                    }
+                    else
+                    {
+                        Console.WriteLine("ERROR: DATA NO RECONEGUDA: DD/MM/YYYY"); // <-- Control flow goes here
+                        goto fechaIncorrecta2;
+                    }
+
                     conductor = new Driver(nom, cognoms, dataNaixement, new License(IDLlicencia, tipusLlicencia, nomComplet, caducitatLlicencia));
                 }
                 else
@@ -95,11 +100,39 @@ namespace M6_Exercici_Vehicles
                 goto ErrorSiNo;
             }
 
-            // printamos el coche
+            // printamos el 
             Console.Clear();
             Console.WriteLine("--- NUEVO CONDUCTOR CREADO ---");
             conductor.ToString();
-
+            respuesta2Error:
+            Console.WriteLine();
+            Console.WriteLine("Conductor correcto? si = salir al menu || no = borrar nuevo conductor");
+            respuesta2 = Console.ReadLine();
+            switch (respuesta2)
+            {
+                case "si":
+                    break;
+                case "no":
+                    Console.WriteLine("Borrando nuevo conductor creado...");
+                    conductor = null;
+                respuestaError:
+                    Console.WriteLine("Quiere salir o crear otro conductor? salir || crear");
+                    respuesta = Console.ReadLine();
+                    switch (respuesta)
+                    {
+                        case "salir":
+                            break;
+                        case "crear":
+                            goto Inicio;
+                        default:
+                            Console.WriteLine("ERROR: Escriba 'salir' o 'crear'.");
+                            goto respuestaError;
+                    }
+                    break;
+                default:
+                    Console.WriteLine("ERROR: Escriba 'si' o 'no'.");
+                    goto respuesta2Error;
+            }
 
             // Devolvemos el objeto final creado
             return conductor;

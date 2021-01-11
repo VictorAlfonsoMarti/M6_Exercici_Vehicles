@@ -1,2 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ArrayOfAnyType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+<ArrayOfAnyType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <anyType xsi:type="Driver">
+    <Nom>Pepito</Nom>
+    <Cognoms>Grillo</Cognoms>
+    <DataNaixement>12/12/2012</DataNaixement>
+    <Llicencia>
+      <id>12345677</id>
+      <Tipus>moto</Tipus>
+      <NomComplet>Pepito Grillo</NomComplet>
+      <Caducitat>12/21/2012</Caducitat>
+    </Llicencia>
+  </anyType>
+  <anyType xsi:type="Driver">
+    <Nom>Thorin</Nom>
+    <Cognoms>Escudo de Roble</Cognoms>
+    <DataNaixement>02/01/1930</DataNaixement>
+    <Llicencia>
+      <id>1234567889</id>
+      <Tipus>camion</Tipus>
+      <NomComplet>Thorin Escudo de Roble</NomComplet>
+      <Caducitat>21/05/9999</Caducitat>
+    </Llicencia>
+  </anyType>
+  <anyType xsi:type="Driver">
+    <Nom>Henrry</Nom>
+    <Cognoms>Ford</Cognoms>
+    <DataNaixement>12/12/1212</DataNaixement>
+    <Llicencia>
+      <id>moto</id>
+      <Tipus>moto</Tipus>
+      <NomComplet>Henrry Ford</NomComplet>
+      <Caducitat>12/12/12</Caducitat>
+    </Llicencia>
+  </anyType>
+</ArrayOfAnyType>

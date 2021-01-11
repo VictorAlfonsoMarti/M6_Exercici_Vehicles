@@ -22,6 +22,8 @@ namespace M6_Exercici_Vehicles
         private string MarcaTrasera;
         private double DiametroTrasera;
 
+        Driver conductor;
+
         private const string marcaDefault = "Marca de la Casa";
         private const double diametroDefault = 2;
 
@@ -35,6 +37,7 @@ namespace M6_Exercici_Vehicles
         public double _DiametroDelantera { get => DiametroDelantera; set => DiametroDelantera = value; }
         public string _MarcaTrasera { get => MarcaTrasera; set => MarcaTrasera = value; }
         public double _DiametroTrasera { get => DiametroTrasera; set => DiametroTrasera = value; }
+        public Driver _Conductor { get => conductor; set => conductor = value; }
 
         //CONSTRUCTOR
         public Bike()
@@ -52,6 +55,7 @@ namespace M6_Exercici_Vehicles
             _DiametroDelantera = diametroDefault;
             _MarcaTrasera = marcaDefault;
             _DiametroTrasera = diametroDefault;
+            _Conductor = null;
         }
         public Bike(string matricula, string marca, string color, string marcaDelantera, double diametroDelantero, string marcaTrasera, double diametroTrasero)
         {
@@ -63,6 +67,7 @@ namespace M6_Exercici_Vehicles
             _DiametroDelantera = diametroDelantero;
             _MarcaTrasera = marcaDelantera;
             _DiametroTrasera = diametroDelantero;
+            _Conductor = null;
 
         }
         public Bike(string matricula, string marca, string color, string marcaRueda, double diametroRueda, string posicionRueda)
@@ -79,6 +84,7 @@ namespace M6_Exercici_Vehicles
             _Matricula = matricula;
             _Marca = marca;
             _Color = color;
+            _Conductor = null;
             if (posicionRueda.Equals("delanteras"))
             {
                 _MarcaDelantera = marcaRueda;
@@ -116,6 +122,12 @@ namespace M6_Exercici_Vehicles
             Console.WriteLine("    Rueda Trasera:");
             Console.WriteLine("      Marca {0}", _MarcaTrasera);
             Console.WriteLine("      Diametro {0}", _DiametroDelantera);
+            Console.WriteLine("    Conductor:");
+            if (_Conductor != null)
+            {
+                Console.WriteLine("    Conductor:");
+                _Conductor.ToString();
+            }
 
 
             return "";

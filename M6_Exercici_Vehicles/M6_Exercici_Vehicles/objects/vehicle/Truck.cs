@@ -26,6 +26,8 @@ namespace M6_Exercici_Vehicles
         private string MarcaTraseraIzquierda;
         private double DiametroTraseraIzquierda;
 
+        Driver conductor;
+
         private const string marcaDefault = "Marca de la Casa";
         private const double diametroDefault = 2;
 
@@ -41,6 +43,7 @@ namespace M6_Exercici_Vehicles
         public double _DiametroTraseraDerecha { get => DiametroTraseraDerecha; set => DiametroTraseraDerecha = value; }
         public string _MarcaTraseraIzquierda { get => MarcaTraseraIzquierda; set => MarcaTraseraIzquierda = value; }
         public double _DiametroTraseraIzquierda { get => DiametroTraseraIzquierda; set => DiametroTraseraIzquierda = value; }
+        public Driver _Conductor { get => conductor; set => conductor = value; }
 
         //CONSTRUCTOR
         public Truck()
@@ -62,6 +65,7 @@ namespace M6_Exercici_Vehicles
             _DiametroTraseraDerecha = diametroDefault;
             _MarcaTraseraIzquierda = marcaDefault;
             _DiametroTraseraIzquierda = diametroDefault;
+            _Conductor = null;
         }
         public Truck(string matricula, string marca, string color, string marcaDelantera, double diametroDelantera, string marcaTrasera, double diametroTrasera)
         {
@@ -77,6 +81,7 @@ namespace M6_Exercici_Vehicles
             _DiametroTraseraDerecha = diametroTrasera;
             _MarcaTraseraIzquierda = marcaTrasera;
             _DiametroTraseraIzquierda = diametroTrasera;
+            _Conductor = null;
         }
         public Truck(string matricula, string marca, string color, string marcaRueda, double diametroRueda, string posicionRuedas)
         {
@@ -92,6 +97,7 @@ namespace M6_Exercici_Vehicles
             _Matricula = matricula;
             _Marca = marca;
             _Color = color;
+            _Conductor = null;
             if (posicionRuedas.Equals("delanteras"))
             {
                 _MarcaDelanteraDerecha = marcaRueda;
@@ -137,6 +143,12 @@ namespace M6_Exercici_Vehicles
             Console.WriteLine("    Ruedas Traseras:");
             Console.WriteLine("      Marca {0}", _MarcaTraseraDerecha);
             Console.WriteLine("      Diametro {0}", _DiametroDelanteraDerecha);
+            Console.WriteLine("    Conductor:");
+            if (_Conductor != null)
+            {
+                Console.WriteLine("    Conductor:");
+                _Conductor.ToString();
+            }
 
             return "";
         }
